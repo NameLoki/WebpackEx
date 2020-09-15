@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //css를 추출해서 파일로 저장하는 플러그인
 
 module.exports = {
     entry: "./index.jsx",
@@ -32,8 +32,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader , 'css-loader']
+                use: [MiniCssExtractPlugin.loader , 'css-loader'] // 오른쪽에서부터 왼쪽으로 실행 -> css로더를 읽고 MiniCssExtractPlugin으로 읽은 css를 파일로 추출
             },
+            {
+                test:/\.scss$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] // scss-loader로 scss파일을 읽고 읽은 파일을 css변환 후 파일로 추출
+            }
         ],
     },
     plugins: [
