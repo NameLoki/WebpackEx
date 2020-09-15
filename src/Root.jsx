@@ -5,7 +5,7 @@ import './style.scss'
 const Root = () => {
     return (
         <>
-        <h3 className="title">안녕, 리액뚜</h3>
+        <h3 className="title">안녕, 리액뚜 이게 되니?</h3>
         </>
     );
 };

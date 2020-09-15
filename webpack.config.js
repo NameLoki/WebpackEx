@@ -1,16 +1,22 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin"); // html파일 읽고 저장 플러그인
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //css를 추출해서 파일로 저장하는 플러그인
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
     entry: "./index.jsx",
     output: {
-        filename: "bundle.js",
+        filename: "index.js",
         path:path.resolve(__dirname + "/build"),
     },
     mode: "none",
     resolve: {
         extensions: ['.js', '.jsx']
+    },
+    devServer: {
+        contentBase: path.resolve("./build"),
+        index: 'index.html',
+        port:9000
     },
     module: {
         rules: [
@@ -46,7 +52,8 @@ module.exports = {
             filename: 'index.html' // output출력 파일
         }),
         new MiniCssExtractPlugin({
-            filename: 'style.css',
+            filename: 'style.css', // 저장파일 이름
         }),
+        new CleanWebpackPlugin()
     ]
 };
