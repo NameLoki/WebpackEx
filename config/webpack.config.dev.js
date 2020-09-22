@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //css를 추출
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: "./index.jsx",
+    entry: "./src/index.jsx",
     output: {
         filename: "index.js",
         path:path.resolve(__dirname, "../build"),
@@ -19,7 +19,7 @@ module.exports = {
         port:9000,
         historyApiFallback: true, // 주소창으로 접근해도 해당 라우팅 가능하게 해줌
         proxy: {
-            '/':'http://localhost:3000'
+            '/':'http://localhost:3005'
         },
     },
     module: {
