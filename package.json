@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod",
     "start": "webpack-dev-server --config ./config/webpack.config.dev --hot"
@@ -27,6 +28,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "axios": "^0.20.0",
+    "http-proxy-middleware": "^1.0.5",
     "path": "^0.12.7",
     "react-router-dom": "^5.2.0"
   }

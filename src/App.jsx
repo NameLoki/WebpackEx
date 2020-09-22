@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import LandingPage from './component/views/LandingPage/LandingPage'
 import LoginPage from './component/views/LoginPage/LoginPage'
+import SingupPage from './component/views/SingupPage/SingupPage'
 
 export default memo(() => {
 
@@ -14,6 +15,9 @@ export default memo(() => {
             </Route>
             <Route path="/login">
                 <LoginPage></LoginPage>
+            </Route>
+            <Route path="/singup">
+                <SingupPage></SingupPage>
             </Route>
         </Switch>
     </Router>
