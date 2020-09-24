@@ -4,7 +4,7 @@ import axios from 'axios'
 function LandingPage() {
 
     useEffect(() => {
-        axios.get('/auth')
+        axios.get('/userList')
         .then((res) => {
             console.log(res);
         });
@@ -13,9 +13,15 @@ function LandingPage() {
     }, [])
 
     return (
-        <>
+        <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width:'100%',
+            height:'100vh',
+        }}>
         <h1>이게뭐노?</h1>
-        </> 
+        </div> 
     )
 }
 

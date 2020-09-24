@@ -17,10 +17,10 @@ module.exports = {
         contentBase: path.resolve(__dirname, "../build"),
         index: 'index.html',
         port:9000,
-        historyApiFallback: true, // 주소창으로 접근해도 해당 라우팅 가능하게 해줌
         proxy: {
-            '/':'http://localhost:3005'
+            '/api':'http://localhost:3005'
         },
+        historyApiFallback: true, // 주소창으로 접근해도 해당 라우팅 가능하게 해줌
     },
     module: {
         rules: [
