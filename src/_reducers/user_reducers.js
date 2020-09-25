@@ -1,4 +1,4 @@
-import { LOGIN_USER } from '../_actions/types';
+import { LOGIN_USER, SING_UP } from '../_actions/types';
 
 export default function(state = {}, action) {
 
@@ -8,6 +8,11 @@ export default function(state = {}, action) {
                 ...state,
                 loginSuccess: action.payload
             }
+        case SING_UP:
+            return {
+                ...state,
+                data: action.data    
+        }
         default:
             return state;
     }

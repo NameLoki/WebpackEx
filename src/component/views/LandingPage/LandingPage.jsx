@@ -3,15 +3,6 @@ import axios from 'axios'
 
 function LandingPage() {
 
-    useEffect(() => {
-        axios.get('/userList')
-        .then((res) => {
-            console.log(res);
-        });
-        return () => {
-        }
-    }, [])
-
     return (
         <div style={{
             display: 'flex',

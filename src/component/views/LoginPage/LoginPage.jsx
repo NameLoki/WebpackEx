@@ -1,8 +1,9 @@
 import React, { memo, useState, useCallback } from 'react'
+import { withRouter } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../_actions/user_action'
 
-export default memo(( { history }) => {
+const LoginPage = memo(( { history } ) => {
 
     const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ export default memo(( { history }) => {
         setPassword(e.currentTarget.value);
     }, []);
 
-    const onSubmitHandler = (e) => {
+    const onSubmitHandler = useCallback((e) => {
         e.preventDefault();
 
         let body = {
@@ -27,12 +28,13 @@ export default memo(( { history }) => {
 
         dispatch(loginUser(body)).then(res => {
             if(res.payload.loginSuccess) { 
+                console.log(history);
                 history.push('/');
             } else {
-                alert('로그인 실패');
+                console.log(res.payload);
             }
         })
-    };
+    }, [Id, Password]);
 
     return (
         <>
@@ -42,8 +44,9 @@ export default memo(( { history }) => {
             <label>password</label>
             <input type="password" value={Password} onChange={onChangePassword}></input>
             <button type='submit'>갸아아악</button>
-            
         </form>
         </>
     )
 });
+
+export default withRouter(LoginPage);
