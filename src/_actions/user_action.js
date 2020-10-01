@@ -20,6 +20,8 @@ export function singupUser(data) {
     const request = axios.post('/api/singup', data)
     .then(res => res.data);
 
+    console.log(request);
+
     return {
         type: SING_UP,
         data: request

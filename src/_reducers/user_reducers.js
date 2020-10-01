@@ -4,14 +4,16 @@ export default function(state = {}, action) {
 
     switch(action.type) {
         case LOGIN_USER:
+            console.log(action);
             return {
                 ...state,
-                loginSuccess: action.payload
+                payload: action.payload
             }
         case SING_UP:
+            console.log(action);
             return {
                 ...state,
-                data: action.data    
+                payload: action.data    
         }
         default:
             return state;

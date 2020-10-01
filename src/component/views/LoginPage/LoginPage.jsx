@@ -26,7 +26,10 @@ const LoginPage = memo(( { history } ) => {
             password:Password
         };
 
-        dispatch(loginUser(body)).then(res => {
+
+
+        dispatch(loginUser(body))
+        .then(res => {
             if(res.payload.loginSuccess) { 
                 console.log(history);
                 history.push('/');

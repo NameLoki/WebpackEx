@@ -1,8 +1,9 @@
 import React, { memo, useCallback, useState } from 'react'
+import { withRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { singupUser } from '../../../_actions/user_action'
 
-export default memo(() => {
+const SingupPage = memo(({ history }) => {
 
     const dispatch = useDispatch();
 
@@ -23,9 +24,15 @@ export default memo(() => {
             role:Role
         };
 
-        dispatch(singupUser(data));
-
-    });
+        dispatch(singupUser(data)).data
+        .then(res => {
+            if(res.data.success) {
+                history.push('/login');
+            } else {
+                alert(data.message);
+            }
+        })
+    }, []);
     
     const onChangeId = useCallback((e) => {
         setId(e.currentTarget.value);
@@ -65,3 +72,5 @@ export default memo(() => {
         </>
     )
 });
+
+export default withRouter(SingupPage);
